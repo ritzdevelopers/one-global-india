@@ -1,0 +1,67 @@
+/* Custom Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Banner Slider Styles */
+.banner-slider-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-slider-wrapper {
+    display: flex;
+    will-change: transform;
+}
+
+.banner-slide {
+    position: relative;
+}
+
+.banner-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width:1461px) {
+   .padding {
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
+   }
+}
+
+@media (max-width:1440px) {
+    .padding {
+     padding-left: 60px !important;
+     padding-right: 60px !important;
+     padding-top: 70px !important;
+     padding-bottom: 70px !important;
+    }
+ }
+
+ @media (max-width:1279px) {
+    .padding {
+     padding-left: 30px !important;
+     padding-right: 30px !important;
+     padding-top: 70px !important;
+     padding-bottom: 70px !important;
+    }
+ }
+
+ @media (max-width:767px) {
+    .padding {
+     padding-left: 20px !important;
+     padding-right: 20px !important;
+     padding-top: 35px !important;
+     padding-bottom: 35px !important;
+    }
+ }
