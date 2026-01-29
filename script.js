@@ -336,8 +336,8 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
         if (targetSection) {
             lenis.scrollTo(targetSection, {
-                offset: -100,
-                duration: 1.2,
+                offset: -98,
+                duration: 1.1,
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 immediate: false, 
             });
