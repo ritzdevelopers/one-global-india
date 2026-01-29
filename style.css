@@ -201,4 +201,12 @@ body {
     }
 }
 
+/* Leadership section: force top alignment of left text and right cards */
+.leadership-row {
+    align-items: flex-start !important;
+}
+.leadership-row > * {
+    align-self: flex-start !important;
+}
+
 
