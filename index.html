@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Global Developers</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400;1,400&family=Open+Sans:wght@400&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -33,7 +39,7 @@
 
         <!-- Links List  -->
         <div class="flex justify-between gap-8 lg:gap-12">
-            <ul class="flex justify-between gap-2 h-[69px] items-center font-libre-baskerville font-bold">
+            <ul class="flex justify-between gap-2 h-[69px] items-center font-bold">
                 <li class="nav-link min-w-[91px] h-[40px] flex justify-center items-center font-[700] text-[15px] text-black cursor-pointer bg-black text-white rounded-[4px] transition-all duration-600 "
                     data-nav="home">
                     Home
@@ -65,7 +71,7 @@
         <!-- Logo 2 and Menu Icon Container -->
         <div class="flex items-center">
             <!-- Logo 2 -->
-          
+
 
             <!-- Menu Icon Button -->
             <button id="menu-toggle" class="z-50 p-2 cursor-pointer" aria-label="Toggle menu">
@@ -84,13 +90,12 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="lg:hidden fixed top-0 left-0 w-full h-screen bg-black z-40">
+    <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-full h-screen bg-black z-40">
         <div class="w-full h-full flex flex-col items-center justify-center px-6">
 
 
             <!-- Mobile Menu Links -->
-            <ul class="flex flex-col  items-center font-libre-baskerville font-bold">
+            <ul class="flex flex-col  items-center font-bold">
                 <li class="w-full text-center">
                     <a href="#home"
                         class="block w-full py-4 text-white text-[16px] font-[700] cursor-pointer border-b border-white/20">Home</a>
@@ -118,29 +123,45 @@
     <main class="w-full">
 
         <!-- Section 1  -->
-        <section class="w-full relative overflow-hidden h-screen min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen">
+        <section id="home"
+            class="w-full relative overflow-hidden h-screen min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen">
 
             <!-- Slider Container  -->
             <div class="banner-slider-container relative w-full h-full">
                 <div class="banner-slider-wrapper flex relative" style="width: 300%; height: 100%;">
-                    <!-- Slide 1  -->
-                    <div class="banner-slide w-full h-full ">
-                        <img src="images/banner-3.png" alt="Banner 1" class="w-full h-full ">
+
+                    <!-- Slide 1 -->
+                    <div class="banner-slide w-full h-full">
+                        <picture>
+                            <source srcset="images/mobile.jpeg" media="(max-width: 768px)">
+                            <img src="images/banner-3.png" alt="Banner 1" class="w-full h-full object-cover">
+                        </picture>
                     </div>
-                    <!-- Slide 2  -->
-                    <div class="banner-slide w-full h-full ">
-                        <img src="images/banner-3.png" alt="Banner 2" class="w-full h-full ">
+
+                    <!-- Slide 2 -->
+                    <div class="banner-slide w-full h-full">
+                        <picture>
+                            <source srcset="images/mobile.jpeg" media="(max-width: 768px)">
+                            <img src="images/banner-3.png" alt="Banner 2" class="w-full h-full object-cover">
+                        </picture>
                     </div>
-                    <!-- Slide 3  -->
-                    <div class="banner-slide w-full h-full ">
-                        <img src="images/banner-3.png" alt="Banner 3" class="w-full h-full ">
+
+                    <!-- Slide 3 -->
+                    <div class="banner-slide w-full h-full">
+                        <picture>
+                            <source srcset="images/mobile.jpeg" media="(max-width: 768px)">
+                            <img src="images/banner-3.png" alt="Banner 3" class="w-full h-full object-cover">
+                        </picture>
                     </div>
+
                 </div>
             </div>
 
+
             <!-- Absolute Position Container  -->
             <div class="absolute inset-0 z-10 w-full h-full">
-                <div class="w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center px-4 sm:px-6 md:px-12 py-8 lg:py-0">
+                <div
+                    class="w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center px-4 sm:px-6 md:px-12 pt-[12rem] pb-[9rem] lg:py-0">
 
                     <!-- Left Side Container  -->
                     <div class="flex flex-col gap-6 sm:gap-8 lg:gap-[50px] w-full lg:w-auto">
@@ -153,19 +174,28 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-[20px]">
-                            <button
-                                class="flex justify-between items-center gap-2 bg-black rounded-full w-[237px] h-[50px] sm:h-[55px] lg:h-[58px] pl-6 pr-1">
-                                <p class="text-white text-sm sm:text-[15px] lg:text-[16px] font-[600]">Explore Projects</p>
-                                <div class="w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px] rounded-full bg-white flex justify-center items-center">
-                                    <img src="images/one-btn-arr.png" alt="" class="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px]">
+                            <button type="button" data-scroll-to="amenities"
+                                class="cta-btn flex justify-between items-center gap-2 bg-black rounded-full w-[237px] h-[50px] sm:h-[55px] lg:h-[58px] pl-6 pr-1 transition-all duration-300">
+                                <p
+                                    class="text-white text-sm sm:text-[15px] lg:text-[16px] font-[600] transition-colors duration-300">
+                                    Explore Projects
+                                </p>
+                                <div
+                                    class="cta-btn-arrow w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px] rounded-full bg-white flex justify-center items-center transition-colors duration-300">
+                                    <img src="images/one-btn-arr.png" alt=""
+                                        class="cta-btn-arrow-img w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] transition-all duration-300">
                                 </div>
 
                             </button>
-                            <button
-                                class="flex justify-between items-center gap-2 border border-[#FFFAFA] rounded-full w-[237px] h-[50px] sm:h-[55px] lg:h-[58px] pl-6 pr-1">
-                                <p class="text-white text-sm sm:text-[15px] lg:text-[16px] font-[600]">Enquire Now</p>
-                                <div class="w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px] rounded-full bg-white flex justify-center items-center">
-                                    <img src="images/one-btn-arr.png" alt="" class="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px]">
+                            <button type="button" data-scroll-to="unit-type"
+                                class="cta-btn cta-btn-outline flex justify-between items-center gap-2 border border-[#FFFAFA] rounded-full w-[237px] h-[50px] sm:h-[55px] lg:h-[58px] pl-6 pr-1 transition-all duration-300">
+                                <p
+                                    class="text-white text-sm sm:text-[15px] lg:text-[16px] font-[600] transition-colors duration-300">
+                                    Enquire Now</p>
+                                <div
+                                    class="cta-btn-arrow w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px] rounded-full bg-white flex justify-center items-center transition-colors duration-300">
+                                    <img src="images/one-btn-arr.png" alt=""
+                                        class="cta-btn-arrow-img w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] transition-all duration-300">
                                 </div>
 
                             </button>
@@ -173,8 +203,10 @@
                     </div>
 
                     <!-- Right Side Container  -->
-                    <div class="py-4 hidden lg:block sm:py-6 lg:py-8 w-full lg:w-auto flex justify-center lg:justify-end">
-                        <img src="images/s1-logo.png" alt="" class="w-[200px] sm:w-[300px] md:w-[400px] lg:w-[472px] h-auto">
+                    <div
+                        class="py-4 hidden lg:block sm:py-6 lg:py-8 w-full lg:w-auto flex justify-center lg:justify-end">
+                        <img src="images/s1-logo.png" alt=""
+                            class="w-[200px] sm:w-[300px] md:w-[400px] lg:w-[472px] h-auto">
                     </div>
                 </div>
             </div>
@@ -182,18 +214,22 @@
             <!-- Absolute Position Slider Pagination Container  -->
             <div
                 class="w-full flex justify-center items-center gap-2 sm:gap-3 absolute bottom-6 sm:bottom-8 lg:bottom-10 left-[50%] translate-x-[-50%] right-0 z-20">
-                <div class="banner-pagination-dot w-[40px] sm:w-[50px] lg:w-[58px] h-[3px] rounded-full bg-white cursor-pointer transition-all duration-300" data-slide="0"></div>
-                <div class="banner-pagination-dot w-[40px] sm:w-[50px] lg:w-[58px] h-[3px] rounded-full bg-[#BFBFBF] cursor-pointer transition-all duration-300" data-slide="1"></div>
-                <div class="banner-pagination-dot w-[40px] sm:w-[50px] lg:w-[58px] h-[3px] rounded-full bg-[#BFBFBF] cursor-pointer transition-all duration-300" data-slide="2"></div>
+                <div class="banner-pagination-dot w-[40px] sm:w-[50px] lg:w-[58px] h-[3px] rounded-full bg-white cursor-pointer transition-all duration-300"
+                    data-slide="0"></div>
+                <div class="banner-pagination-dot w-[40px] sm:w-[50px] lg:w-[58px] h-[3px] rounded-full bg-[#BFBFBF] cursor-pointer transition-all duration-300"
+                    data-slide="1"></div>
+                <div class="banner-pagination-dot w-[40px] sm:w-[50px] lg:w-[58px] h-[3px] rounded-full bg-[#BFBFBF] cursor-pointer transition-all duration-300"
+                    data-slide="2"></div>
             </div>
 
         </section>
 
         <!-- Section 2  -->
-        <section class="w-full padding ">
+        <section class="w-full padding xl:justify-center " id="overview">
 
             <!-- Center Align Container  -->
-            <div class="w-full flex flex-col xl:flex-row justify-between items-center lg:items-start sm:gap-[55px]">
+            <div
+                class="w-full flex flex-col xl:flex-row justify-between items-center lg:items-start sm:gap-[55px] xl:justify-center">
 
                 <!-- Left Side Container  -->
                 <div class="w-full lg:w-auto mx-auto xl:mx-0">
@@ -202,7 +238,8 @@
                         <div class="w-full lg:w-[352px] mb-4 sm:mb-0">
                             <img src="images/one-s2-i1.png" alt="" class="w-full h-full object-cover">
                         </div>
-                        <div  class="w-full lg:w-[352px] px-4 text-center sm:text-left sm:px-8 min-h-[180px] sm:h-[206px] flex flex-col gap-2 sm:gap-[10px] justify-center">
+                        <div
+                            class="w-full lg:w-[352px] px-4 text-center sm:text-left sm:px-8 min-h-[180px] sm:h-[206px] flex flex-col gap-2 sm:gap-[10px] justify-center">
                             <h2 class="font-[400] text-xl sm:text-2xl lg:text-[24px]">
                                 Global Standards
                             </h2>
@@ -216,9 +253,11 @@
 
                     <!-- Bottom Container  -->
                     <div class="flex flex-col-reverse sm:flex-row justify-between gap-0">
-                        <div class="w-full lg:w-[352px] px-4 text-center sm:text-left sm:px-8 min-h-[180px] sm:h-[206px] flex flex-col gap-2 sm:gap-[10px] justify-center">
+                        <div
+                            class="w-full lg:w-[352px] px-4 text-center sm:text-left sm:px-8 min-h-[180px] sm:h-[206px] flex flex-col gap-2 sm:gap-[10px] justify-center">
                             <h2 class="font-[400] text-xl sm:text-2xl lg:text-[24px]">Long-Term Value</h2>
-                            <p class="font-[400] text-sm sm:text-base lg:text-[16px]">Focused on timeless design, strong locations, and quality
+                            <p class="font-[400] text-sm sm:text-base lg:text-[16px]">Focused on timeless design, strong
+                                locations, and quality
                                 execution that holds value over years.
                             </p>
 
@@ -226,7 +265,8 @@
                         <div
                             class="w-full lg:w-[352px] px-4 text-center sm:text-left sm:px-8 bg-black text-white min-h-[180px] sm:h-[206px] flex flex-col gap-2 sm:gap-[10px] justify-center">
                             <h2 class="font-[400] text-xl sm:text-2xl lg:text-[24px]">Credible Partnerships</h2>
-                            <p class="font-[400] text-sm sm:text-base lg:text-[16px]">Collaborations with respected institutions to strengthen
+                            <p class="font-[400] text-sm sm:text-base lg:text-[16px]">Collaborations with respected
+                                institutions to strengthen
                                 trust, delivery discipline, and project credibility end-to-end.
                             </p>
 
@@ -235,7 +275,8 @@
                 </div>
 
                 <!-- Right Side Container   -->
-                <div class="w-full xl:w-[514px] flex flex-col gap-4 sm:gap-5 lg:gap-[20px] items-center xl:items-start text-center xl:text-left xl:self-end">
+                <div
+                    class="w-full xl:w-[514px] flex flex-col gap-4 sm:gap-5 lg:gap-[20px] items-center xl:items-start text-center xl:text-left xl:self-end">
                     <div class="w-[180px] sm:w-[200px] lg:w-[232px]">
                         <img src="images/one-s2-logo.png" alt="" class="w-full h-full">
                     </div>
@@ -257,26 +298,28 @@
         <section class="w-full padding border-b border-[#D5D3D3] border-t">
 
             <!-- Center Align Container  -->
-            <div class="w-full flex flex-col lg:flex-row justify-between items-center gap-[55px]">
+            <div class="w-full flex flex-col lg:flex-row justify-between items-center gap-[55px] xl:justify-center">
 
                 <!-- Left Side Container  -->
                 <div class="text-center lg:text-right w-full lg:w-auto">
                     <h3 class="font-[400] text-2xl sm:text-3xl lg:text-[34px] mb-3">Our Vision</h3>
-                    <p class="font-[400] text-sm sm:text-base lg:text-[16px] leading-6 sm:leading-7 lg:leading-[28px] max-w-full lg:max-w-[277px] mx-auto lg:mx-0">
+                    <p
+                        class="font-[400] text-sm sm:text-base lg:text-[16px] leading-6 sm:leading-7 lg:leading-[28px] max-w-full lg:max-w-[277px] mx-auto lg:mx-0">
                         Create high-quality residential environments that elevate everyday living through thoughtful
                         design, credible partnerships, and disciplined execution.
                     </p>
                 </div>
 
                 <!-- Center Align Container  -->
-                <div class="w-full sm:w-[400px] md:w-[500px] lg:w-[40%] xl:w-[583px] flex-shrink-0">
+                <div class="w-full sm:w-[400px] md:w-[500px] lg:w-[40%] xl:w-[583px] flex-shrink-0 xl:justify-center">
                     <img src="images/one-s3-i1.png" alt="" class="w-full h-auto">
                 </div>
 
                 <!-- Right Side Container  -->
                 <div class="text-center lg:text-left w-full lg:w-auto">
                     <h3 class="font-[400] text-2xl sm:text-3xl lg:text-[34px] mb-3">Vision</h3>
-                    <p class="font-[400] text-sm sm:text-base lg:text-[16px] leading-6 sm:leading-7 lg:leading-[28px] max-w-full lg:max-w-[277px] mx-auto lg:mx-0">
+                    <p
+                        class="font-[400] text-sm sm:text-base lg:text-[16px] leading-6 sm:leading-7 lg:leading-[28px] max-w-full lg:max-w-[277px] mx-auto lg:mx-0">
                         Build a globally respected real estate platform from India, delivering landmark addresses across
                         select Indian and international markets with integrity and restraint.
                     </p>
@@ -285,10 +328,10 @@
         </section>
 
         <!-- Section 4  -->
-        <section class="w-full padding">
+        <section class="w-full padding" id="amenities">
 
             <!-- Center Align Container  -->
-            <div class="w-full flex flex-col lg:flex-row justify-between gap-8">
+            <div class="w-full flex flex-col lg:flex-row justify-between gap-8 xl:justify-center">
                 <!-- Left Side Container  -->
                 <div class="w-full lg:w-[570px] order-2 lg:order-1">
                     <img src="images/one-s4-i1.png" alt="" class="w-full h-auto">
@@ -307,12 +350,15 @@
                         </div>
 
                         <!-- Bottom 1  -->
-                        <div class="w-full flex  flex-row justify-between gap-6 md:justify-center xl:justify-between items-center sm:items-end md:gap-20">
+                        <div
+                            class="w-full flex  flex-row justify-between gap-6 md:justify-center xl:justify-between items-center sm:items-end md:gap-20">
                             <div class="flex flex-col justify-between items-center gap-4 sm:gap-5 lg:gap-[20px]">
                                 <p class="font-[400] text-sm sm:text-base lg:text-[16px]">Project Name</p>
                                 <img src="images/one-s4-fablux.png" alt="" class="w-[150px] sm:w-[170px] lg:w-[193px]">
                             </div>
-                            <div class="w-[43px] sm:w-[1px] h-[1px] sm:h-[43px] bg-[#AFAFAF] hidden md:block"></div>
+
+                            <div class="w-[43px] sm:w-[1px] h-[1px] sm:h-[43px] bg-[#AFAFAF] hidden md:block ml-10">
+                            </div>
                             <div class="flex flex-col justify-between items-center gap-4 sm:gap-5 lg:gap-[20px]">
                                 <p class="font-[400] text-sm sm:text-base lg:text-[16px]">Brand Association</p>
                                 <img src="images/one-s4-forbes.png" alt="" class="w-[180px] sm:w-[210px] lg:w-[233px]">
@@ -321,26 +367,33 @@
                     </div>
 
                     <!-- Bottom Container  -->
-                    <div class="flex flex-col justify-between items-center text-center gap-5 sm:gap-6 xl:gap-[25px] xl:pt-4">
+                    <div
+                        class="flex flex-col justify-between items-center text-center gap-5 sm:gap-6 xl:gap-[25px] xl:pt-4">
                         <div class="flex flex-col justify-between items-center text-center gap-2">
                             <img src="images/one-s4-location.png" alt="" class="w-[22px] sm:w-[24px] lg:w-[26px]">
                             <p class="font-[400] text-sm sm:text-base lg:text-[16px]">Prime Location</p>
                             <p class="font-[400] text-lg sm:text-xl lg:text-[24px]">Noida Extension</p>
                         </div>
 
-                        <p class="font-[400] text-sm sm:text-base lg:text-[16px] leading-6 sm:leading-7 lg:leading-[28px]">
+                        <p
+                            class="font-[400] text-sm sm:text-base lg:text-[16px] leading-6 sm:leading-7 lg:leading-[28px]">
                             Fab Luxe Residences is One Global's flagship branded ultra-luxury residential development,
-                            created in collaboration with Forbes Global Properties. <br class="hidden xl:block"><br class="hidden xl:block">
+                            created in collaboration with Forbes Global Properties. <br class="hidden xl:block"><br
+                                class="hidden xl:block">
                             Conceived as a low-density, privacy-led address, it reflects global standards in planning,
                             lifestyle design, and spatial quality. Crafted for discerning buyers, Fab Luxe represents
                             refined living with long-term value.
                         </p>
 
-                        <button
-                            class="flex justify-between items-center gap-2 bg-black rounded-full w-[237px] h-[50px] sm:h-[55px] lg:h-[58px] pl-6 pr-1">
-                            <p class="text-white text-sm sm:text-[15px] lg:text-[16px] font-[600]">Explore Fab Luxe</p>
-                            <div class="w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px] rounded-full bg-white flex justify-center items-center">
-                                <img src="images/one-btn-arr.png" alt="" class="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px]">
+                        <button type="button"
+                            class="cta-btn flex justify-between items-center gap-2 bg-black rounded-full w-[237px] h-[50px] sm:h-[55px] lg:h-[58px] pl-6 pr-1 transition-all duration-300">
+                            <p
+                                class="text-white text-sm sm:text-[15px] lg:text-[16px] font-[600] transition-colors duration-300">
+                                Explore Fab Luxe</p>
+                            <div
+                                class="cta-btn-arrow w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px] rounded-full bg-white flex justify-center items-center transition-colors duration-300">
+                                <img src="images/one-btn-arr.png" alt=""
+                                    class="cta-btn-arrow-img w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] transition-all duration-300">
                             </div>
 
                         </button>
@@ -354,28 +407,33 @@
         <section class="w-full padding border-t border-[#D5D3D3]">
 
             <!-- Center Align Container  -->
-            <div class="w-full flex flex-col lg:flex-row lg:justify-between gap-6">
+            <div class="w-full flex flex-col lg:flex-row lg:justify-between gap-6 xl:justify-center">
 
                 <!-- Left Side Container  -->
                 <div class="flex flex-col text-center lg:text-left justify-center gap-[10px] w-full lg:w-auto">
                     <h3 class="font-[400] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[34px]">Leadership</h3>
-                    <p class="font-[400] text-[14px] sm:text-[15px] md:text-[16px] max-w-full lg:max-w-[321px]">The ones that bring perspective and scale that
+                    <p class="font-[400] text-[14px] sm:text-[15px] md:text-[16px] max-w-full lg:max-w-[321px]">The ones
+                        that bring perspective and scale that
                         deliver success and
                         prosperity.</p>
                 </div>
 
                 <!-- Right Side Container  -->
-                <div class="flex flex-col sm:flex-row gap-3 sm:gap-[15px] w-full lg:w-auto overflow-x-auto sm:overflow-x-visible  justify-center lg:justify-start">
-                    <div class="relative  sm:h-[280px] md:h-[320px] lg:h-[343px] min-w-[200px] sm:min-w-0">
-                        <img id="1" src="images/one-s5-i1.png" alt="" class="w-full sm:w-[250px] md:w-[300px] lg:w-[355px] object-cover cursor-pointer h-full transition-all duration-1000" onclick="handleImageClick(this)">
+                <div
+                    class="flex flex-col sm:flex-row gap-3 sm:gap-[15px] w-full lg:w-auto overflow-x-auto sm:overflow-x-visible justify-center lg:justify-start">
+                    <div class="relative w-full sm:w-auto sm:h-[280px] md:h-[320px] lg:h-[343px] min-w-0 sm:min-w-0">
+                        <img id="1" src="images/one-s5-i1.png" alt=""
+                            class="w-full sm:w-[250px] md:w-[300px] lg:w-[355px] object-cover cursor-pointer h-full transition-all duration-1000"
+                            onclick="handleImageClick(this)">
 
                         <!-- Absolute Position Container For Text Content  -->
-                        <div
-                        id="absDiv1"
-                            class="absolute w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex flex-col py-2 sm:py-3 md:py-4 transition-all ease-in-out">
-                            <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Suman Gosain</h4>
+                        <div id="absDiv1"
+                            class="leadership-card-detail absolute w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex flex-col py-2 sm:py-3 md:py-4 transition-all ease-in-out">
+                            <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Suman Gosain
+                            </h4>
                             <div class="w-full text-center">
-                                <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Vision & Partnerships</p>
+                                <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Vision & Partnerships
+                                </p>
                                 <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
                                     Leads long-term direction, strategic alliances
                                 </p>
@@ -383,66 +441,132 @@
                         </div>
                     </div>
 
-                        <div class=" sm:h-[280px] md:h-[320px] lg:h-[343px] relative min-w-[120px] sm:min-w-0">
-                            <img id="2" src="images/one-s5-ni2.png" alt="" class="w-full sm:w-[120px] md:w-[135px] lg:w-[145px] object-cover cursor-pointer h-full transition-all duration-1000" onclick="handleImageClick(this)">
-
-                            <div
-                            id="absDiv2"
-                                class="hidden w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex flex-col py-2 sm:py-3 md:py-4">
-                                <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Suman Gosain</h4>
-                                <div class="w-full text-center">
-                                    <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Vision & Partnerships</p>
-                                    <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
-                                        Leads long-term direction, strategic alliances
-                                    </p>
-                                </div>
+                    <!-- Card 2 -->
+                    <div class="relative w-full sm:w-auto sm:h-[280px] md:h-[320px] lg:h-[343px] min-w-0 sm:min-w-0">
+                        <img id="2" src="images/one-s5-ni2.png" alt=""
+                            class="w-full sm:w-[120px] md:w-[135px] lg:w-[145px] object-cover cursor-pointer h-full transition-all duration-1000"
+                            onclick="handleImageClick(this)">
+                        <div id="absDiv2"
+                            class="leadership-card-detail hidden absolute w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex-col py-2 sm:py-3 md:py-4">
+                            <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Aarav Mehta
+                            </h4>
+                            <div class="w-full text-center">
+                                <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Growth & Strategy</p>
+                                <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
+                                    Drives expansion roadmap, market selection, and project positioning.
+                                </p>
                             </div>
                         </div>
-                        <div class=" sm:h-[280px] md:h-[320px] lg:h-[343px] relative min-w-[120px] sm:min-w-0">
-                            <img id="3" src="images/one-s5-ni3.png" alt="" class="w-full sm:w-[120px] md:w-[135px] lg:w-[145px] object-cover cursor-pointer h-full transition-all duration-1000" onclick="handleImageClick(this)">
+                    </div>
 
-                            <div
-                            id="absDiv3"
-                                class="hidden w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex flex-col py-2 sm:py-3 md:py-4">
-                                <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Suman Gosain</h4>
-                                <div class="w-full text-center">
-                                    <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Vision & Partnerships</p>
-                                    <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
-                                        Leads long-term direction, strategic alliances
-                                    </p>
-                                </div>
+                    <!-- Card 3 -->
+                    <div class="relative w-full sm:w-auto sm:h-[280px] md:h-[320px] lg:h-[343px] min-w-0 sm:min-w-0">
+                        <img id="3" src="images/one-s5-ni3.png" alt=""
+                            class="w-full sm:w-[120px] md:w-[135px] lg:w-[145px] object-cover cursor-pointer h-full transition-all duration-1000"
+                            onclick="handleImageClick(this)">
+                        <div id="absDiv3"
+                            class="leadership-card-detail hidden absolute w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex-col py-2 sm:py-3 md:py-4">
+                            <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Kavya Sharma
+                            </h4>
+                            <div class="w-full text-center">
+                                <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Planning & Delivery</p>
+                                <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
+                                    Ensures execution discipline, partner coordination, and quality frameworks.
+                                </p>
                             </div>
                         </div>
-                        <div class=" sm:h-[280px] md:h-[320px] lg:h-[343px] relative min-w-[120px] sm:min-w-0">
-                            <img id="4" src="images/one-s5-ni4.png" alt="" class="w-full sm:w-[120px] md:w-[135px] lg:w-[145px] object-cover cursor-pointer h-full transition-all duration-1000" onclick="handleImageClick(this)">
+                    </div>
 
-                            <div
-                            id="absDiv4"
-                                class="hidden w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex flex-col py-2 sm:py-3 md:py-4">
-                                <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Suman Gosain</h4>
-                                <div class="w-full text-center">
-                                    <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Vision & Partnerships</p>
-                                    <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
-                                        Leads long-term direction, strategic alliances
-                                    </p>
-                                </div>
+                    <!-- Card 4 -->
+                    <div class="relative w-full sm:w-auto sm:h-[280px] md:h-[320px] lg:h-[343px] min-w-0 sm:min-w-0">
+                        <img id="4" src="images/one-s5-ni4.png" alt=""
+                            class="w-full sm:w-[120px] md:w-[135px] lg:w-[145px] object-cover cursor-pointer h-full transition-all duration-1000"
+                            onclick="handleImageClick(this)">
+                        <div id="absDiv4"
+                            class="leadership-card-detail hidden absolute w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex-col py-2 sm:py-3 md:py-4">
+                            <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Rohan Kapoor
+                            </h4>
+                            <div class="w-full text-center">
+                                <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Product & Design</p>
+                                <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
+                                    Aligns design intent, layouts, and user experience with global benchmarks.
+                                </p>
                             </div>
                         </div>
+                    </div>
+
+
+
+                    <!-- <div class=" sm:h-[280px] md:h-[320px] lg:h-[343px] relative min-w-[120px] sm:min-w-0">
+                        <img id="2" src="images/one-s5-ni2.png" alt=""
+                            class="w-full sm:w-[120px] md:w-[135px] lg:w-[145px] object-cover cursor-pointer h-full transition-all duration-1000"
+                            onclick="handleImageClick(this)">
+
+                        <div id="absDiv2"
+                            class="hidden w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex flex-col py-2 sm:py-3 md:py-4">
+                            <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Suman Gosain
+                            </h4>
+                            <div class="w-full text-center">
+                                <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Vision & Partnerships
+                                </p>
+                                <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
+                                    Leads long-term direction, strategic alliances
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" sm:h-[280px] md:h-[320px] lg:h-[343px] relative min-w-[120px] sm:min-w-0">
+                        <img id="3" src="images/one-s5-ni3.png" alt=""
+                            class="w-full sm:w-[120px] md:w-[135px] lg:w-[145px] object-cover cursor-pointer h-full transition-all duration-1000"
+                            onclick="handleImageClick(this)">
+
+                        <div id="absDiv3"
+                            class="hidden w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex flex-col py-2 sm:py-3 md:py-4">
+                            <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Suman Gosain
+                            </h4>
+                            <div class="w-full text-center">
+                                <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Vision & Partnerships
+                                </p>
+                                <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
+                                    Leads long-term direction, strategic alliances
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" sm:h-[280px] md:h-[320px] lg:h-[343px] relative min-w-[120px] sm:min-w-0">
+                        <img id="4" src="images/one-s5-ni4.png" alt=""
+                            class="w-full sm:w-[120px] md:w-[135px] lg:w-[145px] object-cover cursor-pointer h-full transition-all duration-1000"
+                            onclick="handleImageClick(this)">
+
+                        <div id="absDiv4"
+                            class="hidden w-[95%] bg-white left-[50%] translate-x-[-50%] bottom-[10px] text-center gap-2 sm:gap-3 flex flex-col py-2 sm:py-3 md:py-4">
+                            <h4 class="font-[400] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px]">Suman Gosain
+                            </h4>
+                            <div class="w-full text-center">
+                                <p class="font-[600] text-[12px] sm:text-[13px] md:text-[14px]">Vision & Partnerships
+                                </p>
+                                <p class="font-[400] text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px]">
+                                    Leads long-term direction, strategic alliances
+                                </p>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </section>
 
 
         <!-- Section 6  -->
-        <section class="w-full padding" style="padding-top: 0px !important;">
+        <section id="unit-type" class="w-full padding" style="padding-top: 0px !important;">
 
 
             <!-- Center Align Container  -->
-            <div class="flex flex-col lg:flex-row justify-between items-end gap-6 xl:gap-[55px]  ">
+            <div class="flex flex-col lg:flex-row justify-between items-end gap-6 xl:gap-[55px] xl:justify-center">
                 <!-- Left Side Form Container  -->
                 <form class="flex flex-col gap-6 sm:gap-8 xl:gap-[30px] w-full lg:w-auto">
                     <h3 class="font-[400] text-2xl sm:text-3xl lg:text-[30px]">Connect With One Global</h3>
-                    <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 sm:gap-6 lg:gap-[24px]">
+                    <div
+                        class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 sm:gap-6 lg:gap-[24px]">
                         <input type="text" required
                             class="w-full lg:w-[220px] xl:w-[274px] h-[50px] sm:h-[55px] lg:h-[60px] bg-[#F2F2F2] rounded-full pl-4 sm:pl-5 placeholder:text-[#000000] text-sm sm:text-base"
                             placeholder="Your Name*">
@@ -451,24 +575,32 @@
                             placeholder="Your Email*">
                     </div>
 
-                    <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 sm:gap-6 lg:gap-[24px]">
+                    <div
+                        class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 sm:gap-6 lg:gap-[24px]">
                         <input type="tel" required
                             class="w-full lg:w-[220px] xl:w-[274px] h-[50px] sm:h-[55px] lg:h-[60px] bg-[#F2F2F2] rounded-full pl-4 sm:pl-5 placeholder:text-[#000000] text-sm sm:text-base"
                             placeholder="Your Phone*">
                         <textarea name="message" required
-                            class="w-full lg:w-[220px] xl:w-[274px] pt-4 min-h-[100px] sm:min-h-[60px] lg:h-[60px] bg-[#F2F2F2] resize-none rounded-full pl-4 sm:pl-5 placeholder:text-[#000000] text-sm sm:text-base"
+                            class="w-full lg:w-[220px] xl:w-[274px] pt-4 min-h-[100px] sm:min-h-[60px] lg:h-[60px] bg-[#F2F2F2] resize-none rounded-full pl-4 sm:pl-5 placeholder:text-[#000000] text-sm sm:text-base sm:pt-[2rem]"
                             placeholder="Your Message*"></textarea>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-6 lg:gap-[24px]">
-                        <p class="font-[400] text-sm sm:text-base lg:text-[16px]  w-full lg:max-w-[220px] xl:max-w-[274px]">
+                    <div
+                        class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-6 lg:gap-[24px]">
+                        <p
+                            class="font-[400] text-sm sm:text-base lg:text-[16px]  w-full lg:max-w-[220px] xl:max-w-[274px]">
                             Explore premium properties with trusted !
                         </p>
-                        <button
-                            class="flex justify-between items-center gap-2 bg-black rounded-full w-full lg:w-[257px] xl:w-[274px] h-[50px] sm:h-[55px] lg:h-[58px] pl-6 pr-1">
-                            <p class="text-white text-sm sm:text-[15px] lg:text-[16px] font-[600]">Request a Call Back</p>
-                            <div class="w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px] rounded-full bg-white flex justify-center items-center">
-                                <img src="images/one-btn-arr.png" alt="" class="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px]">
+                        <button type="button"
+                            class="cta-btn flex justify-between items-center gap-2 bg-black rounded-full w-full lg:w-[257px] xl:w-[274px] h-[50px] sm:h-[55px] lg:h-[58px] pl-6 pr-1 transition-all duration-300">
+                            <p
+                                class="text-white text-sm sm:text-[15px] lg:text-[16px] font-[600] transition-colors duration-300">
+                                Request a Call Back
+                            </p>
+                            <div
+                                class="cta-btn-arrow w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] lg:w-[50px] lg:h-[50px] rounded-full bg-white flex justify-center items-center transition-colors duration-300">
+                                <img src="images/one-btn-arr.png" alt=""
+                                    class="cta-btn-arrow-img w-[28px] h-[28px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] transition-all duration-300">
                             </div>
 
                         </button>
@@ -484,7 +616,7 @@
     </main>
 
     <footer
-        class="w-full  bg-[#F7F7F7] flex flex-col justify-center items-center gap-6 px-32 py-[70px]">
+        class="w-full  bg-[#F7F7F7] flex flex-col justify-center items-center gap-6 px-4 sm:px-8 md:px-16 lg:px-32 py-[10px] md:py-[70px]">
         <img src="images/one-footer-logo.png" alt="" class="w-[163px]" />
         <p class="font-[400] text-[14px] md:text-[18px] text-black max-w-[817px] text-center ">
             Luxury isn’t defined by excess, it’s defined by intention. <br> At One Global, we build with discipline,
@@ -528,7 +660,8 @@
             </a>
         </div>
         <p class="font-[400] text-[12px] md:text-[14px] font-open-sans font-regular text-center px-4">
-            © 2026 <span class="font-[700]">One Global Developers</span>. All rights reserved. Digital media planned by <span class="font-[600]">Ritz Media World</span>
+            © 2026 <span class="font-[700]">One Global Developers</span>. All rights reserved. Digital media planned by
+            <span class="font-[600]">Ritz Media World</span>
         </p>
     </footer>
 
@@ -608,10 +741,12 @@
                     </div>
 
                     <button type="submit"
-                        class="w-full lg:w-[376px] h-[50px] bg-black rounded-full text-white font-[500] text-[14px] font-open-sans flex justify-between items-center pl-6 pr-1 mx-auto">
-                        <p>Get a Call Back</p>
-                        <div class="w-[40px] h-[40px] rounded-full bg-white flex justify-center items-center">
-                            <img src="fab-imgs/arrow.png" alt="" class="w-[36px] h-[36px]">
+                        class="cta-btn w-full lg:w-[376px] h-[50px] bg-black rounded-full text-white font-[500] text-[14px] font-open-sans flex justify-between items-center pl-6 pr-1 mx-auto transition-all duration-300">
+                        <p class="transition-colors duration-300">Get a Call Back</p>
+                        <div
+                            class="cta-btn-arrow w-[40px] h-[40px] rounded-full bg-white flex justify-center items-center transition-colors duration-300">
+                            <img src="fab-imgs/arrow.png" alt=""
+                                class="cta-btn-arrow-img w-[36px] h-[36px] transition-all duration-300">
                         </div>
                     </button>
                 </form>

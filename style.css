@@ -5,9 +5,36 @@
     box-sizing: border-box;
 }
 
+/* Headings: Baskervville, weight 400 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Baskervville, serif;
+    font-weight: 400;
+}
+
+/* Paragraphs and body: Open Sans, weight 400 */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+/* Nav uses Baskervville to match heading style */
+#navbar,
+#mobile-navbar,
+#mobile-menu {
+    font-family: Baskervville, serif;
+    font-weight: 400;
+}
+
+/* Other font (commented out)
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
+*/
 
 /* Banner Slider Styles */
 .banner-slider-container {
@@ -24,10 +51,17 @@ body {
     position: relative;
 }
 
+.banner-slide picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .banner-slide img {
     display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 @media (min-width:1461px) {
@@ -65,3 +99,105 @@ body {
      padding-bottom: 35px !important;
     }
  }
+
+ @media (min-width: 1280px) {
+    .xl\:gap-\[55px\] {
+        gap: 55px;
+        justify-content: center;
+    }
+}
+
+ @media (min-width: 1024px) {
+    .lg\:justify-between {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:flex-row {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1280px) {
+    .xl\:flex-row {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* CTA buttons: smooth fill-in hover (colour fills in left to right) */
+.cta-btn {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* White fill layer – expands from left to right on hover */
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+    border: 1px solid #000;
+}
+
+.cta-btn:hover::before {
+    transform: scaleX(1);
+}
+
+/* Keep text and arrow above the fill */
+.cta-btn p,
+.cta-btn .cta-btn-arrow {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-btn p {
+    transition: color 0.7s ease 0.15s;
+}
+
+.cta-btn .cta-btn-arrow {
+    transition: background-color 0.7s ease 0.15s;
+}
+
+.cta-btn .cta-btn-arrow-img {
+    transition: filter 0.7s ease 0.15s;
+}
+
+.cta-btn:hover p {
+    color: #000 !important;
+}
+
+.cta-btn:hover .cta-btn-arrow {
+    background-color: #000 !important;
+}
+
+.cta-btn:hover .cta-btn-arrow-img {
+    filter: brightness(0) invert(1);
+}
+
+
+/* Leadership cards: on mobile show all details without clicking */
+@media (max-width: 639px) {
+    .leadership-card-detail {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 95% !important;
+        min-width: 0; /* allow shrink so text can wrap */
+        overflow: visible;
+        word-wrap: break-word;
+    }
+}
+
+

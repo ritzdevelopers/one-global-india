@@ -68,6 +68,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial check on page load
     handleNavbarScroll();
 
+    // CTA buttons: scroll to section on click (Explore Projects → Flagship, Enquire Now → Contact form)
+    document.querySelectorAll('[data-scroll-to]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const targetId = btn.getAttribute('data-scroll-to');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                e.preventDefault();
+                lenis.scrollTo(targetSection, {
+                    offset: -80,
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    immediate: false,
+                });
+            }
+        });
+    });
+
     // Mobile Menu Toggle
     let isMenuOpen = false;
 
@@ -117,11 +134,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close mobile menu when clicking on a link
-    const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
+    // Close mobile menu and smooth scroll when clicking on a link
+    const mobileMenuLinks = mobileMenu?.querySelectorAll('a[href^="#"]');
     if (mobileMenuLinks) {
         mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                const targetId = href === '#' ? null : href.slice(1);
+                const targetSection = targetId ? document.getElementById(targetId) : null;
+
+                if (targetSection) {
+                    lenis.scrollTo(targetSection, {
+                        offset: -80,
+                        duration: 1.2,
+                        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                        immediate: false,
+                    });
+                }
+
                 if (isMenuOpen) {
                     isMenuOpen = false;
                     gsap.to(mobileMenu, {
@@ -236,19 +267,24 @@ let activeImg = img1;
 let imgIdArray = [img1, img2, img3, img4];
 let absDivArray = [absDiv1, absDiv2, absDiv3, absDiv4];
 
-// Initialize all absolute divs with opacity 0
-absDivArray.forEach((div) => {
-    if (div) {
-        gsap.set(div, { opacity: 0 });
+// Initialize: on desktop (sm+) first card visible, rest hidden; on mobile all visible via CSS
+function initLeadershipCards() {
+    const isMobile = window.innerWidth < 640;
+    if (isMobile) return; // on mobile, CSS shows all details
+    absDivArray.forEach((div) => {
+        if (div) gsap.set(div, { opacity: 0 });
+    });
+    if (absDiv1) {
+        absDiv1.classList.remove('hidden');
+        absDiv1.classList.add('absolute');
+        gsap.set(absDiv1, { opacity: 1 });
     }
-});
-
-// Set initial state for the first div (absDiv1)
-if (absDiv1) {
-    gsap.set(absDiv1, { opacity: 1 });
 }
+initLeadershipCards();
+window.addEventListener('resize', initLeadershipCards);
 
 function handleImageClick(imageId) {
+    if (window.innerWidth < 640) return; // on mobile, no click-to-expand
     activeImg = imageId;
     imgIdArray.forEach((img, idx) => {
         if (img == activeImg) {
@@ -291,3 +327,20 @@ function handleImageClick(imageId) {
     })
 
 }
+
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-nav');
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+            lenis.scrollTo(targetSection, {
+                offset: -100,
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                immediate: false, 
+            });
+        }
+    });
+});
