@@ -18,7 +18,7 @@ body {
 }
 
 p {
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
     font-weight: 400;
 }
 
@@ -28,6 +28,11 @@ p {
 #mobile-menu {
     font-family: Baskervville, serif;
     font-weight: 400;
+}
+
+/* Hero headline block: Figma-style serif and spacing */
+.hero-headline-block .hero-subtitle {
+    font-family: Libre Baskerville;
 }
 
 /* Other font (commented out)
@@ -197,7 +202,7 @@ body {
         min-width: 0; /* allow shrink so text can wrap */
         overflow: visible;
         word-wrap: break-word;
-        
+
     }
 }
 
