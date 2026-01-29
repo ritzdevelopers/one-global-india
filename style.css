@@ -197,6 +197,7 @@ body {
         min-width: 0; /* allow shrink so text can wrap */
         overflow: visible;
         word-wrap: break-word;
+        
     }
 }
 

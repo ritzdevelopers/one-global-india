@@ -267,10 +267,20 @@ let activeImg = img1;
 let imgIdArray = [img1, img2, img3, img4];
 let absDivArray = [absDiv1, absDiv2, absDiv3, absDiv4];
 
-// Initialize: on desktop (sm+) first card visible, rest hidden; on mobile all visible via CSS
+// Initialize: on desktop (sm+) first card visible, rest hidden; on mobile all card text visible on images
 function initLeadershipCards() {
     const isMobile = window.innerWidth < 640;
-    if (isMobile) return; // on mobile, CSS shows all details
+    if (isMobile) {
+        // On mobile: show text on all cards (remove hidden, set opacity 1 so it overrides any previous GSAP inline style)
+        absDivArray.forEach((div) => {
+            if (div) {
+                div.classList.remove('hidden');
+                div.classList.add('absolute', 'flex');
+                gsap.set(div, { opacity: 1 });
+            }
+        });
+        return;
+    }
     absDivArray.forEach((div) => {
         if (div) gsap.set(div, { opacity: 0 });
     });
