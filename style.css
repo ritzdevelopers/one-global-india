@@ -6,8 +6,13 @@
 }
 
 /* Headings: Baskervville, weight 400 */
-h1, h2, h3, h4, h5, h6 {
-    font-family: Baskervville, serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Baskervville;
     font-weight: 400;
 }
 
@@ -70,49 +75,49 @@ body {
 }
 
 @media (min-width:1461px) {
-   .padding {
-    padding-left: 70px !important;
-    padding-right: 70px !important;
-    padding-top: 70px !important;
-    padding-bottom: 70px !important;
-   }
+    .padding {
+        padding-left: 70px !important;
+        padding-right: 70px !important;
+        padding-top: 70px !important;
+        padding-bottom: 70px !important;
+    }
 }
 
 @media (max-width:1440px) {
     .padding {
-     padding-left: 60px !important;
-     padding-right: 60px !important;
-     padding-top: 70px !important;
-     padding-bottom: 70px !important;
+        padding-left: 60px !important;
+        padding-right: 60px !important;
+        padding-top: 70px !important;
+        padding-bottom: 70px !important;
     }
- }
+}
 
- @media (max-width:1279px) {
+@media (max-width:1279px) {
     .padding {
-     padding-left: 30px !important;
-     padding-right: 30px !important;
-     padding-top: 70px !important;
-     padding-bottom: 70px !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+        padding-top: 70px !important;
+        padding-bottom: 70px !important;
     }
- }
+}
 
- @media (max-width:767px) {
+@media (max-width:767px) {
     .padding {
-     padding-left: 20px !important;
-     padding-right: 20px !important;
-     padding-top: 35px !important;
-     padding-bottom: 35px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
     }
- }
+}
 
- @media (min-width: 1280px) {
+@media (min-width: 1280px) {
     .xl\:gap-\[55px\] {
         gap: 55px;
         justify-content: center;
     }
 }
 
- @media (min-width: 1024px) {
+@media (min-width: 1024px) {
     .lg\:justify-between {
         justify-content: center;
     }
@@ -132,7 +137,7 @@ body {
     }
 }
 
-/* CTA buttons: smooth fill-in hover (colour fills in left to right) */
+/* CTA buttons: direction-aware hover fill */
 .cta-btn {
     cursor: pointer;
     position: relative;
@@ -140,26 +145,47 @@ body {
     font-family: 'Open Sans';
 }
 
-/* White fill layer – expands from left to right on hover */
 .cta-btn::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
+    inset: 0;
+    background: #fff;
     border-radius: 9999px;
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 0;
     border: 1px solid #000;
-    font-family: 'Open Sans';
+    z-index: 0;
+    transform: scale(0);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cta-btn:hover::before {
+/* Direction origins */
+.cta-btn[data-dir="left"]::before {
+    transform-origin: left center;
+    transform: scaleX(0);
+}
+
+.cta-btn[data-dir="right"]::before {
+    transform-origin: right center;
+    transform: scaleX(0);
+}
+
+.cta-btn[data-dir="top"]::before {
+    transform-origin: center top;
+    transform: scaleY(0);
+}
+
+.cta-btn[data-dir="bottom"]::before {
+    transform-origin: center bottom;
+    transform: scaleY(0);
+}
+
+.cta-btn.active[data-dir="left"]::before,
+.cta-btn.active[data-dir="right"]::before {
     transform: scaleX(1);
+}
+
+.cta-btn.active[data-dir="top"]::before,
+.cta-btn.active[data-dir="bottom"]::before {
+    transform: scaleY(1);
 }
 
 /* Keep text and arrow above the fill */
@@ -201,7 +227,8 @@ body {
         opacity: 1 !important;
         visibility: visible !important;
         width: 95% !important;
-        min-width: 0; /* allow shrink so text can wrap */
+        min-width: 0;
+        /* allow shrink so text can wrap */
         overflow: visible;
         word-wrap: break-word;
 
@@ -212,8 +239,7 @@ body {
 .leadership-row {
     align-items: flex-start !important;
 }
-.leadership-row > * {
+
+.leadership-row>* {
     align-self: flex-start !important;
 }
-
-

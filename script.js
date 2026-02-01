@@ -354,3 +354,24 @@ document.querySelectorAll('.nav-link').forEach(link => {
         }
     });
 });
+
+// Direction-aware hover for CTA buttons
+(function() {
+    const getDirection = (e, el) => {
+        const { left, top, width, height } = el.getBoundingClientRect();
+        const x = e.clientX - left, y = e.clientY - top;
+        const edges = { left: x, right: width - x, top: y, bottom: height - y };
+        return Object.entries(edges).reduce((a, b) => a[1] < b[1] ? a : b)[0];
+    };
+
+    document.querySelectorAll('.cta-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', e => {
+            btn.dataset.dir = getDirection(e, btn);
+            btn.classList.add('active');
+        });
+        btn.addEventListener('mouseleave', e => {
+            btn.dataset.dir = getDirection(e, btn);
+            btn.classList.remove('active');
+        });
+    });
+})();
