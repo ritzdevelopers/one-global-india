@@ -298,16 +298,16 @@ function handleImageClick(imageId) {
     activeImg = imageId;
     imgIdArray.forEach((img, idx) => {
         if (img == activeImg) {
-            // Remove collapsed width classes (responsive) - keep w-full, only remove responsive overrides
+            
             img.classList.remove('sm:w-[120px]', 'md:w-[135px]', 'lg:w-[145px]', 'w-[145px]');
-            // Add expanded width classes (responsive)
-            img.classList.add('sm:w-[250px]', 'md:w-[300px]', 'lg:w-[355px]');
+           
+            img.classList.add('sm:w-[250px]', 'md:w-[355px]', 'lg:w-[355px]');
             setTimeout(() => {
                 const currentDiv = absDivArray[idx];
                 if (currentDiv) {
                     currentDiv.classList.remove('hidden');
                     currentDiv.classList.add('absolute');
-                    // Fade in animation
+        
                     gsap.to(currentDiv, {
                         opacity: 1,
                         duration: 0.6,
@@ -316,9 +316,9 @@ function handleImageClick(imageId) {
                 }
             }, 1000);
         } else {
-            // Remove expanded width classes (responsive) - keep w-full, only remove responsive overrides
-            img.classList.remove('sm:w-[250px]', 'md:w-[300px]', 'lg:w-[355px]', 'w-[355px]');
-            // Add collapsed width classes (responsive)
+            
+            img.classList.remove('sm:w-[250px]', 'md:w-[355px]', 'lg:w-[355px]', 'w-[355px]');
+      
             img.classList.add('sm:w-[120px]', 'md:w-[135px]', 'lg:w-[145px]');
             const currentDiv = absDivArray[idx];
             if (currentDiv) {
@@ -355,7 +355,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Direction-aware hover for CTA buttons
+
 (function() {
     const getDirection = (e, el) => {
         const { left, top, width, height } = el.getBoundingClientRect();
