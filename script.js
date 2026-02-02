@@ -266,6 +266,7 @@ const absDiv4 = document.getElementById('absDiv4');
 let activeImg = img1;
 let imgIdArray = [img1, img2, img3, img4];
 let absDivArray = [absDiv1, absDiv2, absDiv3, absDiv4];
+let cardShowTimeout = null; // Track timeout to clear on new click
 
 // Initialize: on desktop (sm+) first card visible, rest hidden; on mobile all card text visible on images
 function initLeadershipCards() {
@@ -295,37 +296,51 @@ window.addEventListener('resize', initLeadershipCards);
 
 function handleImageClick(imageId) {
     if (window.innerWidth < 640) return; // on mobile, no click-to-expand
+    
+    // Clear any pending timeout from previous click
+    if (cardShowTimeout) {
+        clearTimeout(cardShowTimeout);
+        cardShowTimeout = null;
+    }
+    
     activeImg = imageId;
+    const clickedIdx = imgIdArray.indexOf(imageId);
+    
     imgIdArray.forEach((img, idx) => {
         if (img == activeImg) {
-            
+            // Remove collapsed width classes
             img.classList.remove('sm:w-[120px]', 'md:w-[135px]', 'lg:w-[145px]', 'w-[145px]');
-           
+            // Add expanded width classes
             img.classList.add('sm:w-[250px]', 'md:w-[355px]', 'lg:w-[355px]');
-            setTimeout(() => {
-                const currentDiv = absDivArray[idx];
-                if (currentDiv) {
-                    currentDiv.classList.remove('hidden');
-                    currentDiv.classList.add('absolute');
-        
-                    gsap.to(currentDiv, {
-                        opacity: 1,
-                        duration: 0.6,
-                        ease: 'power2.out'
-                    });
+            
+            // Store timeout reference so we can cancel it
+            cardShowTimeout = setTimeout(() => {
+                // Double check this is still the active card before showing
+                if (activeImg === imageId) {
+                    const currentDiv = absDivArray[idx];
+                    if (currentDiv) {
+                        currentDiv.classList.remove('hidden');
+                        currentDiv.classList.add('absolute');
+                        gsap.to(currentDiv, {
+                            opacity: 1,
+                            duration: 0.6,
+                            ease: 'power2.out'
+                        });
+                    }
                 }
             }, 1000);
         } else {
-            
+            // Remove expanded width classes
             img.classList.remove('sm:w-[250px]', 'md:w-[355px]', 'lg:w-[355px]', 'w-[355px]');
-      
+            // Add collapsed width classes
             img.classList.add('sm:w-[120px]', 'md:w-[135px]', 'lg:w-[145px]');
+            
             const currentDiv = absDivArray[idx];
             if (currentDiv) {
-                // Fade out animation
+                // Immediately hide other cards
                 gsap.to(currentDiv, {
                     opacity: 0,
-                    duration: 0,
+                    duration: 0.2,
                     ease: 'power2.in',
                     onComplete: () => {
                         currentDiv.classList.add('hidden');
@@ -334,8 +349,7 @@ function handleImageClick(imageId) {
                 });
             }
         }
-    })
-
+    });
 }
 
 document.querySelectorAll('.nav-link').forEach(link => {
